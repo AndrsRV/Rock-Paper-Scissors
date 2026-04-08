@@ -5,58 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <script src="javaScript.js"></script>
 
 </head>
 
 <body>
-    <script>
+    
+    <button id="btn1">rock</button>
+    <button id="btn2">paper</button>
+    <button id="btn3">scissors</button>
 
-        var humanScore = 0;
-        var computerScore = 0;
+    <button onclick="playGame()">Play Game</button>
 
-        function getComputerChoice() {
-            const choices = ['rock', 'paper', 'scissors'];
-            const randomIndex = Math.floor(Math.random() * choices.length);
-            return choices[randomIndex];
-        }
+    <div id="result">
+        <p id="score"></p>
+        <p id="message"></p>
+    </div>
 
-        var userInput = "";
-
-        function getHumanChoice() {
-            userInput = prompt("Enter your choice: rock, paper, or scissors");
-            return userInput;
-        }
-
-
-        function playGame() {
-            while (humanScore < 5 && computerScore < 5) {
-                const humanSelection = getHumanChoice();
-                const computerSelection = getComputerChoice();
-                playRound(humanSelection, computerSelection);
-                console.log("Score: Human " + humanScore + " - Computer " + computerScore);
-            }
-            if (humanScore === 5) {
-                console.log("You win the game!");
-            } else {
-                console.log("Computer wins the game!");
-            }
-        }
-
-        function playRound(humanChoice, computerChoice) {
-            if (humanChoice === computerChoice) {
-                console.log("It's a tie! Both chose " + humanChoice);
-            } else if ((humanChoice === 'rock' && computerChoice === 'scissors') || (humanChoice === 'paper' && computerChoice === 'rock') || (humanChoice === 'scissors' && computerChoice === 'paper')) {
-                console.log("You win! " + humanChoice + " beats " + computerChoice);
-                humanScore++;
-            } else {
-                console.log("You lose! " + computerChoice + " beats " + humanChoice);
-                computerScore++;
-            }
-        }
-
-        playGame();
-
-    </script>
 </body>
 
 </html>
